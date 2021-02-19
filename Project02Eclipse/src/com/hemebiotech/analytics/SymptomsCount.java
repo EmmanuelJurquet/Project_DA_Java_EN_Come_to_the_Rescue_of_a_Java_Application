@@ -31,9 +31,9 @@ public class SymptomsCount implements ISymptomCount {
 			}
 			else {
 				mSympt.put(symptom, 1);
-
+				
 			}
-		}
+		}System.out.println(mSympt.toString());
 		return mSympt;
 
 	}
