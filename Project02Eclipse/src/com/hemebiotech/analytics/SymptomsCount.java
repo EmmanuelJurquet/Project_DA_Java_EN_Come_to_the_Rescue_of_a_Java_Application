@@ -18,41 +18,35 @@ public class SymptomsCount {
 	 * 
 	 * 
 	 */
-	public Map <String, Integer> sCount () {
+	public Map <String, Integer> listAndCountSymptoms () {
 
 
-		ISymptomReader lecteur = new ReadSymptomDataFromFile("symptoms.txt");
+		ISymptomReader lecteur = new ReadSymptomDataFromFile("C:\\Users\\33671\\git\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application.git\\Project02Eclipse\\src\\com\\hemebiotech\\analytics\\symptoms.txt");
 
 		List<String> lSymptoms = lecteur.GetSymptoms();
 
 		Map<String,Integer> mSympt = new TreeMap<>();
 
-		try {
-			for (int n = 0; n<lSymptoms.size(); n++) {
 
-				String symptome = lSymptoms.get(n).trim().toLowerCase();
+		for (int n = 0; n<lSymptoms.size(); n++) {
 
-				if (mSympt.containsKey(symptome)) {
+			String symptome = lSymptoms.get(n).trim().toLowerCase();
 
-					int nbOccurence = mSympt.get(symptome);
-					nbOccurence ++;
-
-
-					mSympt.put(symptome, nbOccurence);
+			if (mSympt.containsKey(symptome)) {
+				int nbOccurence = mSympt.get(symptome);
+				nbOccurence ++;
 
 
-				}
-				else {
-					mSympt.put(symptome,1);
-				}
+				mSympt.put(symptome, nbOccurence);
+
+
 			}
+			else {
+				mSympt.put(symptome,1);
+			}
+
 			System.out.println(mSympt.toString());
 		}
-		catch (Exception SymptomsCount) {
-			System.out.println("Ceci est une erreur de la methode SymptomCount");
-		}
-
 		return mSympt;
-
 	}
 }

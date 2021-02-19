@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 	 * @throws IOException
 	 */
 
-	public Map<String,Integer> writeSymptomDataToFile (Map<String,Integer> mSympt)    {
+	public void writeSymptomDataToFile (Map<String,Integer> mSympt)    {
 
 		FileWriter writer  = null;
 		BufferedWriter bw = null;
@@ -43,8 +43,5 @@ import java.util.Map.Entry;
 
 			}
 		}
-
-		return mSympt;
-
 	}
 }
