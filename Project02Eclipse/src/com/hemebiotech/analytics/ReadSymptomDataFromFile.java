@@ -8,12 +8,11 @@ import java.util.List;
 
 /**
  * Simple brute force implementation
- *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
-	
+
 	/**
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
@@ -21,19 +20,22 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
-	
+	/**
+	 * (non-javadoc)
+	 * @see com.hemebiotech.analytics.ISymptomReader#getSymptoms()
+	 */
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		List<String> result = new ArrayList<>();
-		
+
 		if (filepath != null) {
-			
+
 			BufferedReader reader = null;
-		
+
 			try {
-				 reader = new BufferedReader (new FileReader(filepath));
+				reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
-				
+
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
@@ -51,7 +53,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				}
 			}
 		}
-		
 		return result;
 	}
 
